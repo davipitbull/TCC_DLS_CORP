@@ -1,0 +1,33 @@
+
+
+.cursordedinho{
+    cursor: pointer !important;
+}
+.hoverzin:hover{
+    scale: 1.1 !important;
+    transition: 0.3s !important;
+}
+.pressed {
+    transform: translateY(5px); /* Move os elementos para baixo ao serem clicados */
+}
+
+.formedit{
+    background-color: #313348 !important;
+    color: white !important;
+}
+
+
+.placer::placeholder{
+    font-family: "Segoe UI Light",sans-serif !important;
+    color: gray !important;
+}
+.placer:placeholder-shown{
+    font-family: "Segoe UI Light",sans-serif !important;
+}
+
+.formvermais{
+    background-color: dimgray !important;
+    color: white !important;
+}
+
+
