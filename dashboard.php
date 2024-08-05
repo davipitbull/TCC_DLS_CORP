@@ -33,11 +33,11 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
     <aside class=" sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
         <ul class="categories list-unstyled">
-            <li class="hoverzin">
-                <a href="?page=registro">Registro</a>
+            <li class="hoverzin" style="font-family: 'Segoe UI Light',sans-serif">
+                <i class="mdi mdi-text-box-edit"></i><a class="text-white" href="?page=registro">Registro</a>
             </li>
-            <li class="hoverzin">
-                <a href="?page=usuario">Usuários</a>
+            <li class="hoverzin " style="font-family: 'Segoe UI Light',sans-serif">
+                <i class="mdi mdi-account-hard-hat"></i><a class="text-white" href="?page=usuario">Usuários</a>
             </li>
             <li class="hoverzin">
                 <!--            <i onclick="carregaMenu('listarObras')" class=" cursordedinho mdi mdi-office-building"></i><span onclick="carregaMenu('listarObras')" class="text-white cursordedinho" style="font-family: 'Segoe UI Semibold',sans-serif;">OBRAS</span>-->

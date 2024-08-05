@@ -118,7 +118,7 @@ function abrirModalJsExcluir(id, inID, nomeModal, abrirModal = 'A', addEditDel, 
 }
 
 // Função para abrir o modal de alteração
-function abrirModalJsAlterar(id, inID, nomeModal, abrirModal = 'A', addEditDel, formulario, idNome, inNome, idCpf, inCpf) {
+function abrirModalJsAlterar(id, inID, nomeModal, abrirModal = 'A', addEditDel, formulario, idNome, inNome, idCpf, inCpf, idAtivo, InAtivo) {
     const formDados = document.getElementById(formulario);
     const modalElement = document.getElementById(nomeModal);
     const ModalInstacia = new bootstrap.Modal(modalElement);
@@ -134,6 +134,9 @@ function abrirModalJsAlterar(id, inID, nomeModal, abrirModal = 'A', addEditDel, 
         }
         if (inID !== 'nao') {
             document.getElementById(inID).value = id;
+        }
+        if (InAtivo !== 'nao') {
+            document.getElementById(InAtivo).value = idAtivo;
         }
 
         const submitHandler = function (event) {

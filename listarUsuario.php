@@ -66,7 +66,7 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 <body>
     <div class="welcome mb-5">
         <div class="content rounded-3 p-3">
-            <h1 class="fs-3" style="font-family: 'Segoe UI Light',sans-serif">Este é o Menu de Usuários!</h1>
+            <h1 class="fs-3" >Este é o Menu de Usuários!</h1>
             <p class="mb-0" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
         </div>
     </div>
@@ -158,7 +158,7 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 
                                 </div>
                             </div>
-                            <button onclick="abrirModalJsAlterar('<?php echo $idusuario ?>','id','ModalAlterar','A','alterarusuario','frmalterar','<?php echo $nomeusuario ?>', 'nome_usuario','<?php echo $cpfusuario ?>','cpf_usuario');" class="Btngp mb-2 bg-primary">
+                            <button onclick="abrirModalJsAlterar('<?php echo $idusuario ?>','id','ModalAlterar','A','alterarusuario','frmalterar','<?php echo $nomeusuario ?>', 'nome_usuario','<?php echo $cpfusuario ?>','cpf_usuario','<?php echo $ativousuario?>','ativo_usuario');" class="Btngp mb-2 bg-primary">
 
                                 <div class="sign">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
