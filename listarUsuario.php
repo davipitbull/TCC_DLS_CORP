@@ -11,8 +11,8 @@ $pagina_atual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $offset = ($pagina_atual - 1) * $registros_por_pagina;
 
 // Obtenha os valores de pesquisa
-$pesquisa_nome = isset($_POST['pesquisa_nome']) ? $_POST['pesquisa_nome'] : '';
-$pesquisa_cpf = isset($_POST['pesquisa_cpf']) ? $_POST['pesquisa_cpf'] : '';
+$pesquisa_nome = isset($_POST['pesquisa_nome']) ? $_POST['pesquisa_nome'] : (isset($_GET['pesquisa_nome']) ? $_GET['pesquisa_nome'] : '');
+$pesquisa_cpf = isset($_POST['pesquisa_cpf']) ? $_POST['pesquisa_cpf'] : (isset($_GET['pesquisa_cpf']) ? $_GET['pesquisa_cpf'] : '');
 
 function listarUsuarios($campos, $tabela, $offset, $limit, $nome = '', $cpf = '')
 {
@@ -290,7 +290,7 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
                                     <div class="modal-content rounded-5 ">
                                         <div class="modal-body rounded-5" style="background-color: #252636">
                                             <?php if ($fotousuario != null): ?>
-                                                <img style=";width: 100%;margin-right: 25%"
+                                                <img style="width: 100%;margin-right: 25%"
                                                     src="data:<?php echo $tipoConteudo ?>;base64,<?php echo base64_encode($fotousuario) ?>"
                                                     alt="<?php echo $idusuario ?>" title="<?php echo $idusuario ?>">
                                             <?php else: ?>
@@ -332,55 +332,25 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
         </tbody>
     </table>
 
-    <nav aria-label="Navegação de páginas" class="mt-4">
+    <nav aria-label="Navegação de página exemplo" style="margin-top: 20px;">
         <ul class="pagination justify-content-center">
-            <?php if ($pagina_atual > 1): ?>
+            <?php if ($pagina_atual > 1) : ?>
                 <li class="page-item">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual - 1; ?>"
-                        aria-label="Anterior">
+                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual - 1; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>" aria-label="Anterior">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
             <?php endif; ?>
 
-            <?php
-            // Mostrar sempre a primeira página
-            if ($pagina_atual > 6): ?>
-                <li class="page-item">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=1">1</a>
-                </li>
-                <?php if ($pagina_atual > 7): ?>
-                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                <?php endif; ?>
-            <?php endif; ?>
-
-            <?php
-            // Determinar intervalo de páginas
-            $start = max(1, $pagina_atual - 5);
-            $end = min($total_paginas, $pagina_atual + 5);
-
-            for ($i = $start; $i <= $end; $i++): ?>
-                <li class="page-item <?php echo $pagina_atual == $i ? 'active' : ''; ?>">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <?php for ($i = 1; $i <= $total_paginas; $i++) : ?>
+                <li class="page-item <?php if ($i == $pagina_atual) echo 'active'; ?>">
+                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $i; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>"><?php echo $i; ?></a>
                 </li>
             <?php endfor; ?>
 
-            <?php
-            // Mostrar sempre a última página
-            if ($pagina_atual < $total_paginas - 5): ?>
-                <?php if ($pagina_atual < $total_paginas - 6): ?>
-                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                <?php endif; ?>
+            <?php if ($pagina_atual < $total_paginas) : ?>
                 <li class="page-item">
-                    <a class="page-link"
-                        href="dashboard.php?page=usuario&pagina=<?php echo $total_paginas; ?>"><?php echo $total_paginas; ?></a>
-                </li>
-            <?php endif; ?>
-
-            <?php if ($pagina_atual < $total_paginas): ?>
-                <li class="page-item">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual + 1; ?>"
-                        aria-label="Próximo">
+                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual + 1; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>" aria-label="Próximo">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

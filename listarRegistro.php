@@ -189,7 +189,6 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
         </thead>
         <tbody>
             <?php
-            $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro.foto, usuario.nomeUsuario, usuario.cpf', 'registro', 'INNER JOIN usuario ON registro.idusuario = usuario.idusuario', $condicoes_sql);
             if ($listarRegistro) {
                 foreach ($listarRegistro as $registro) {
                     $idregistro = $registro->idregistro;
