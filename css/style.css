@@ -29,5 +29,8 @@
     background-color: dimgray !important;
     color: white !important;
 }
+.welcome .content {
+    background-color: #313348;
+}
 
 

@@ -113,6 +113,7 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
     <link rel="stylesheet" href="./css/btncad.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/tabela.css">
     <link rel="stylesheet" href="./css/btngp.css">
     <link rel="stylesheet" href="./css/pesquisa.css">
@@ -121,10 +122,10 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
 </head>
 
 <body>
-    <div class="welcome mb-5">
+    <div class="welcome mb-5" style="margin-left: 12%;width: 87%">
         <div class="content rounded-3 p-3">
-            <h1 class="fs-3" style="font-family: 'Segoe UI Light',sans-serif">Este é o Menu de Registros!</h1>
-            <p class="mb-0" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
+            <h1 class="fs-3 text-white" style="font-family: 'Segoe UI Light',sans-serif">Este é o Menu de Registros!</h1>
+            <p class="mb-0 text-white" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
         </div>
     </div>
 
@@ -132,7 +133,7 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
         <input type="hidden" name="pagina" value="1">
         <div class="row mb-4" style="margin-left: 17%">
             <div class="col-md-2">
-                <div class="form-group has-search">
+                <div class="form-group has-search mb-2">
                     <label for="pesquisa_data_inicio" style="font-family: 'Segoe UI Light',sans-serif;margin-left: 30%"
                         class="text-white">Data Inicial:</label>
                     <input type="date" name="pesquisa_data_inicio" style="font-family: 'Segoe UI Light',sans-serif"
@@ -179,11 +180,11 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
     <table class="container rounded-5">
         <thead>
             <tr class="text-white" style="font-family: 'Segoe UI Light',sans-serif">
-                <th scope="col" width="5%">#</th>
+                <th scope="col" width="5%">Foto</th>
+                <th scope="col" width="10%">#</th>
                 <th scope="col" width="10%">Data</th>
                 <th scope="col" width="10%">Usuário</th>
-                <th scope="col" width="10%">CPF</th>
-                <th scope="col" width="10%">Foto</th>
+                <th scope="col" width="10%">Cpf</th>
                 <th scope="col" width="10%">Ações</th>
             </tr>
         </thead>
@@ -200,19 +201,20 @@ $listarRegistro = listarGeralJoin2('registro.idregistro, registro.data, registro
                     $tipoFoto = "image/png";
                     ?>
                     <tr class="text-white" style="font-family: 'Segoe UI Light',sans-serif">
-                        <td><?php echo htmlspecialchars($idregistro); ?></td>
-                        <td><?php echo htmlspecialchars($dataregistro); ?></td>
-                        <td><?php echo htmlspecialchars($nomeusuario); ?></td>
-                        <td><?php echo htmlspecialchars($cpfusuario); ?></td>
                         <td>
                             <?php if ($fotoregistro != null): ?>
                                 <img src="data:<?php echo $tipoFoto ?>;base64,<?php echo base64_encode($fotoregistro) ?>"
-                                    width="100" height="100" title="<?php echo htmlspecialchars($idregistro); ?>"
-                                    alt="<?php echo htmlspecialchars($idregistro); ?>">
+                                     width="100" height="100" title="<?php echo htmlspecialchars($idregistro); ?>"
+                                     alt="<?php echo htmlspecialchars($idregistro); ?>">
                             <?php else: ?>
                                 Sem Foto
                             <?php endif; ?>
                         </td>
+                        <td><?php echo htmlspecialchars($idregistro); ?></td>
+                        <td><?php echo htmlspecialchars($dataregistro); ?></td>
+                        <td><?php echo htmlspecialchars($nomeusuario); ?></td>
+                        <td><?php echo htmlspecialchars($cpfusuario); ?></td>
+
                         <td>
                             <button
                                 onclick="abrirModalJsVerMais('<?php echo htmlspecialchars($idregistro); ?>','id','ModalVerMais<?php echo htmlspecialchars($idregistro); ?>','A')"
