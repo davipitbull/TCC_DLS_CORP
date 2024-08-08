@@ -29,30 +29,23 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'main';
 </head>
 
 <body style="background-color: #191919">
-
-    <aside class=" sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <ul class="categories list-unstyled">
-            <li class="hoverzin" style="font-family: 'Segoe UI Light',sans-serif">
-                <i class="mdi mdi-text-box-edit"></i><a class="text-white" href="?page=registro">Registro</a>
-            </li>
-            <li class="hoverzin " style="font-family: 'Segoe UI Light',sans-serif">
-                <i class="mdi mdi-account-hard-hat"></i><a class="text-white" href="?page=usuario">Usuários</a>
-            </li>
-            <li class="hoverzin">
-                <!--            <i onclick="carregaMenu('listarObras')" class=" cursordedinho mdi mdi-office-building"></i><span onclick="carregaMenu('listarObras')" class="text-white cursordedinho" style="font-family: 'Segoe UI Semibold',sans-serif;">OBRAS</span>-->
-            </li>
-        </ul>
-    </aside>
+<div class="sidebar">
+        <li class=" hoverzin mb-3 ms-3" style="font-family: 'Segoe UI Light',sans-serif;list-style-type: none">
+            <i class="mdi mdi-text-box-edit " style="color: gray"></i><a class="text-white" style=" text-decoration: none" href="?page=registro">Registro</a>
+        </li>
+        <li  class=" ms-3 hoverzin" style="font-family: 'Segoe UI Light',sans-serif;list-style-type: none;">
+            <i class="mdi mdi-account-hard-hat " style="color: gray" ></i><a class="text-white" style=" text-decoration: none" href="?page=usuario">Usuários</a>
+        </li>
+</div>
 
     <section id="wrapper">
-        <nav class="navbar navbar-expand-md cornav">
+        <nav style="background-color: #3a3b4a;margin-left: 10%" class=" text-white navbar navbar-expand-md cornav">
             <div class="container-fluid mx-2">
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-navbar" aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="uil-bars text-white"></i>
+                    <button class="navbar-toggler" type="button" style="display: flex;align-items: start; justify-content: start;width: 20%" data-bs-toggle="collapse" data-bs-target="#toggle-navbar" aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="mdi mdi-plus-box"></i>
                     </button>
-                    <a class="navbar-brand" style="font-family: 'Segoe UI Light',sans-serif;">Seja Bem-Vindo, <?php echo $nomeadm ?>!</a>
+                    <a class="navbar-brand text-white" style="font-family: 'Segoe UI Light',sans-serif;">Seja Bem-Vindo, <?php echo $nomeadm ?>!</a>
                 </div>
                 <div class="collapse navbar-collapse" id="toggle-navbar">
                     <ul class="navbar-nav ms-auto">
