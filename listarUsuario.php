@@ -118,36 +118,37 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
             <p class="mb-0" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
         </div>
     </div>
-    <form method="post" name="frmpesquisa" id="frmpesquisa" action="dashboard.php?page=usuario&pagina=1">
-        <input type="hidden" name="pagina" value="1">
-        <div class="row mb-4" style="margin-left: 29%">
-            <div class="col-md-3">
-                <div class="form-group has-search">
-                    <input type="text" id="pesquisa_nome" name="pesquisa_nome" autocomplete="off"
-                        class="form-control rounded-5 formedit placer" placeholder="Pesquise Pelo Nome...">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group has-search">
-                    <input type="text" id="pesquisa_cpf" name="pesquisa_cpf" onkeydown="fMasc(this, mCPF);"
-                        autocomplete="off" maxlength="14" class="form-control rounded-5 formedit placer cpf_usuario"
-                        placeholder="Pesquise Pelo CPF...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btnn mb-2 bg-secondary rounded-5" style="margin-bottom: 20px">
-                    <div class="sign">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <title>Pesquisar</title>
-                            <path
-                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                        </svg>
+
+    <div class="container">
+        <form method="post" name="frmpesquisa" id="frmpesquisa" action="dashboard.php?page=usuario&pagina=1">
+            <input type="hidden" name="pagina" value="1">
+            <div class="row mb-4 text-center">
+                <div class="col-md-3 mt-1">
+                    <div class="form-group has-search">
+                        <input type="text" id="pesquisa_nome" name="pesquisa_nome" autocomplete="off"
+                            class="form-control rounded-5 formedit placer" placeholder="Pesquise Pelo Nome...">
                     </div>
-                    <div class="text" style="font-family: 'Segoe UI Light',sans-serif">Pesquisar</div>
-                </button>
+                </div>
+                <div class="col-md-3 mt-1">
+                    <div class="form-group has-search">
+                        <input type="text" id="pesquisa_cpf" name="pesquisa_cpf" onkeydown="fMasc(this, mCPF);"
+                            autocomplete="off" maxlength="14" class="form-control rounded-5 formedit placer cpf_usuario"
+                            placeholder="Pesquise Pelo CPF...">
+                    </div>
+                </div>
+                <div class="col-md-3 mt-1 text-center">
+                    <button type="submit" class="btnn mb-2 bg-secondary rounded-5" style="margin-bottom: 20px">
+                        <div class="sign">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 
 
 
@@ -202,7 +203,6 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
                                     </svg>
                                 </div>
 
-                                <div class="text" style="font-family: 'Segoe UI Light',sans-serif">Excluir</div>
                             </button>
                             <div class="modal fade" id="ModalCerteza" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
@@ -225,13 +225,10 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 
                                 <div class="sign">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <title>Alterar Dados</title>
                                         <path
                                             d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
                                     </svg>
                                 </div>
-
-                                <div class="text" style="font-family: 'Segoe UI Light',sans-serif">Alterar</div>
                             </button>
                             <div class="modal fade" style="background-color: #313348" id="ModalAlterar" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -278,13 +275,11 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 
                                 <div class="sign">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                        <title>Ver Mais Dados</title>
                                         <path
                                             d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,17.94 13.08,17.38 13.24,16.84C12.83,16.94 12.42,17 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12C17,12.29 16.97,12.59 16.92,12.88C17.58,12.63 18.29,12.5 19,12.5C20.17,12.5 21.31,12.84 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" />
                                     </svg>
                                 </div>
 
-                                <div class="text" style="font-family: 'Segoe UI Light',sans-serif">Ver Mais</div>
                             </button>
                             <div class="modal fade" style="background-color: #313348" id="ModalVerMais<?php echo $idusuario ?>"
                                 tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -336,27 +331,37 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 
     <nav aria-label="Navegação de página exemplo" style="margin-top: 20px;">
         <ul class="pagination justify-content-center">
-            <?php if ($pagina_atual > 1) : ?>
-                <li class="page-item">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual - 1; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-            <?php endif; ?>
+            <?php
+            // Sempre exibe a primeira página
+            if ($pagina_atual > 1) {
+                echo '<li class="page-item"><a class="page-link" href="dashboard.php?page=usuario&pagina=1&pesquisa_nome=' . $pesquisa_nome . '&pesquisa_cpf=' . $pesquisa_cpf . '">1</a></li>';
 
-            <?php for ($i = 1; $i <= $total_paginas; $i++) : ?>
-                <li class="page-item <?php if ($i == $pagina_atual) echo 'active'; ?>">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $i; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>"><?php echo $i; ?></a>
-                </li>
-            <?php endfor; ?>
+                if ($pagina_atual > 3) {
+                    echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                }
+            }
 
-            <?php if ($pagina_atual < $total_paginas) : ?>
-                <li class="page-item">
-                    <a class="page-link" href="dashboard.php?page=usuario&pagina=<?php echo $pagina_atual + 1; ?>&pesquisa_nome=<?php echo $pesquisa_nome; ?>&pesquisa_cpf=<?php echo $pesquisa_cpf; ?>" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            <?php endif; ?>
+            // Exibe as duas páginas anteriores à página atual, se existirem
+            for ($i = max(2, $pagina_atual - 2); $i < $pagina_atual; $i++) {
+                echo '<li class="page-item"><a class="page-link" href="dashboard.php?page=usuario&pagina=' . $i . '&pesquisa_nome=' . $pesquisa_nome . '&pesquisa_cpf=' . $pesquisa_cpf . '">' . $i . '</a></li>';
+            }
+
+            // Exibe a página atual
+            echo '<li class="page-item active"><span class="page-link">' . $pagina_atual . '</span></li>';
+
+            // Exibe as duas páginas seguintes à página atual, se existirem
+            for ($i = $pagina_atual + 1; $i <= min($pagina_atual + 2, $total_paginas); $i++) {
+                echo '<li class="page-item"><a class="page-link" href="dashboard.php?page=usuario&pagina=' . $i . '&pesquisa_nome=' . $pesquisa_nome . '&pesquisa_cpf=' . $pesquisa_cpf . '">' . $i . '</a></li>';
+            }
+
+            // Verifica se precisa mostrar elipses antes da última página
+            if ($pagina_atual < $total_paginas - 2) {
+                if ($pagina_atual < $total_paginas - 3) {
+                    echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                }
+                echo '<li class="page-item"><a class="page-link" href="dashboard.php?page=usuario&pagina=' . $total_paginas . '&pesquisa_nome=' . $pesquisa_nome . '&pesquisa_cpf=' . $pesquisa_cpf . '">' . $total_paginas . '</a></li>';
+            }
+            ?>
         </ul>
     </nav>
 
