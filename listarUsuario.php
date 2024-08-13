@@ -26,6 +26,7 @@ function listarUsuarios($campos, $tabela, $offset, $limit, $nome = '', $cpf = ''
         if (!empty($cpf)) {
             $sql .= " AND cpf LIKE :cpf";
         }
+        $sql .= " ORDER BY idusuario DESC";  // Ordenar de forma decrescente
         $sql .= " LIMIT :limit OFFSET :offset";
 
         $sqlListaTabelas = $conn->prepare($sql);
@@ -52,6 +53,7 @@ function listarUsuarios($campos, $tabela, $offset, $limit, $nome = '', $cpf = ''
     }
     $conn = null;
 }
+
 
 function contarUsuarios($tabela, $nome = '', $cpf = '')
 {
@@ -110,23 +112,23 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 </head>
 
 <body>
-    <div  class="welcome mb-5" style="margin-left: 12%;width: 87%">
-        <div  class="content rounded-3 p-3">
-            <h1 class="fs-3 text-white" style="font-family: 'Segoe UI Light',sans-serif">Este é o Menu de Usuários!</h1>
-            <p class="mb-0 text-white" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
+    <div class="welcome mb-5">
+        <div class="content rounded-3 p-3">
+            <h1 class="fs-3">Este é o Menu de Usuários!</h1>
+            <p class="mb-0" style="font-family: 'Segoe UI Light',sans-serif">Abaixo Encontra-se a Tabela Geral.</p>
         </div>
     </div>
     <form method="post" name="frmpesquisa" id="frmpesquisa" action="dashboard.php?page=usuario&pagina=1">
         <input type="hidden" name="pagina" value="1">
         <div class="row mb-4" style="margin-left: 29%">
             <div class="col-md-3">
-                <div class="form-group has-search mb-3">
+                <div class="form-group has-search">
                     <input type="text" id="pesquisa_nome" name="pesquisa_nome" autocomplete="off"
                         class="form-control rounded-5 formedit placer" placeholder="Pesquise Pelo Nome...">
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="form-group has-search mb-3">
+                <div class="form-group has-search">
                     <input type="text" id="pesquisa_cpf" name="pesquisa_cpf" onkeydown="fMasc(this, mCPF);"
                         autocomplete="off" maxlength="14" class="form-control rounded-5 formedit placer cpf_usuario"
                         placeholder="Pesquise Pelo CPF...">
@@ -152,11 +154,11 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
     <table class="container rounded-5">
         <thead>
             <tr class="text-white" style="font-family: 'Segoe UI Light',sans-serif">
-                <th scope="col" width="5%">Foto</th>
-                <th scope="col" width="8%">#</th>
+                <th scope="col" width="5%">#</th>
                 <th scope="col" width="10%">Nome</th>
                 <th scope="col" width="10%">Cpf</th>
-                <th scope="col" width="10%">Ativo</th>
+                <th scope="col" width="8%">Foto</th>
+                <th scope="col" width="8%">Ativo</th>
                 <th scope="col" width="10%">Ações</th>
             </tr>
         </thead>
@@ -174,18 +176,17 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
 
                     ?>
                     <tr class="text-white" style="font-family: 'Segoe UI Light',sans-serif">
+                        <td><?php echo $idusuario ?></td>
+                        <td><?php echo $nomeusuario ?></td>
+                        <td><?php echo $cpfusuario ?></td>
                         <td>
                             <?php if ($fotousuario != null): ?>
                                 <img src="data:<?php echo $tipoConteudo ?>;base64,<?php echo base64_encode($fotousuario) ?>"
-                                     width="100" height="100" alt="<?php echo $idusuario ?>" title="<?php echo $idusuario ?>">
+                                    width="100" height="100" alt="<?php echo $idusuario ?>" title="<?php echo $idusuario ?>">
                             <?php else: ?>
                                 Sem Foto
                             <?php endif; ?>
                         </td>
-                        <td><?php echo $idusuario ?></td>
-                        <td><?php echo $nomeusuario ?></td>
-                        <td><?php echo $cpfusuario ?></td>
-
                         <td><?php echo $ativousuario ?></td>
                         <td>
                             <input type="hidden" value="<?php echo $idusuario ?>" id="id" name="id">
@@ -219,7 +220,7 @@ $listarUsuario = listarUsuarios('idusuario, nomeUsuario, cpf, ativo, foto', 'usu
                                 </div>
                             </div>
                             <button
-                                onclick="abrirModalJsAlterar('<?php echo $idusuario ?>','id','ModalAlterar','A','alterarusuario','frmalterar','<?php echo $nomeusuario ?>','nome_usuario','<?php echo $cpfusuario ?>','cpf_usuario','<?php echo $ativousuario ?>','ativo_usuario');"
+                                onclick="abrirModalJsAlterar('<?php echo $idusuario ?>','id','ModalAlterar','A','alterarusuario','frmalterar','<?php echo $nomeusuario ?>', 'nome_usuario','<?php echo $cpfusuario ?>','cpf_usuario','<?php echo $ativousuario ?>','ativo_usuario');"
                                 class="Btngp mb-2 bg-primary">
 
                                 <div class="sign">
