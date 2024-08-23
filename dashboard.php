@@ -3,6 +3,7 @@ include_once "./configuracoes/constante.php";
 include_once "./configuracoes/conexao.php";
 include_once "./funcoes/funcoes.php";
 
+
 $idadm = $_SESSION['idadm'];
 $nomeadm = $_SESSION['nome'];
 
